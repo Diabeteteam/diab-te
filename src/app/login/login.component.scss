@@ -1,0 +1,64 @@
+
+ion-toolbar {
+    --border-width: 0 !important;
+}
+
+.header-md::after {
+    background: none !important;
+}
+
+.container h1 {
+    margin-top: 0;
+}
+
+.backbtn {
+    margin-left: 20px;
+}
+
+.form-container {
+    margin-top: 48px;
+}
+
+.form-container ion-item {
+    --padding-start: 0;
+    --border-color: #DADADA;
+}
+.textbox-dg
+{
+  background: rgba(28, 31, 47, 0.16);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #2e344d;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -ms-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+    /* box-shadow: 10px 10px 36px rgb(0,0,0,0.5), -13px -13px 23px rgba(255,255,255, 0.03), inset 14px 14px 70px rgb(0,0,0,0.2), inset -15px -15px 30px rgba(255,255,255, 0.04); */
+    box-shadow: 10px 10px 36px rgb(0,0,0,0.5), -13px -13px 23px rgba(255,255,255, 0.03);
+    border-width: 1px 0px 0 1px;
+      margin-top: 15px;
+}
+
+.form-container ion-item ion-label {
+    color: #A6A6A6;
+}
+
+.form-container ion-item ion-icon {
+    margin-top: auto;
+    color: #c6cbd4;
+}
+
+.form-container ion-button {
+    margin-top: 48px;
+}
+
+.sign-up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-up ion-button {
+    margin: 0;
+}

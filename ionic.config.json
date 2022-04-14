@@ -1,0 +1,7 @@
+{
+  "name": "Diabete_care",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
