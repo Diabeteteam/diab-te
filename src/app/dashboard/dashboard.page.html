@@ -1,9 +1,106 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>dashboard</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <div class="main_content_div">
+    <ion-buttons slot="start" class="menu_btn">
+      <ion-menu-button autoHide="false" color="light"></ion-menu-button>
+    </ion-buttons>
+    <div class="user_div">
+      <div class="first_div" style="font-size: 25px">
+        <ion-label style="color: white" class="welcome">Welcome</ion-label>
+        <br />
+        <ion-label style="color: white; font-weight: 1000" class="username">
+          Adama</ion-label
+        >
+      </div>
+      <div
+        class="user_back"
+        [style.backgroundImage]="'url(assets/img/profile.jpeg)'"
+      ></div>
+    </div>
+    <div
+      class="content_div"
+      style="
+        background: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100%;
+        border-top-right-radius: 32px;
+        margin-top: -40px;
+        padding-top: 30px;
+        height: 100vh;
+        border-top-left-radius: 32px;
+        box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+      "
+    >
+      <div class="container">
+        <div class="box">
+          <div class="content-text">
+            <p>Dernière glycémie</p>
+            <h1>0.8 g/L</h1>
+          </div>
+        </div>
+        <div class="box">
+          <div class="content-text">
+            <p>Test total</p>
+            <h1>1000</h1>
+          </div>
+        </div>
+        <div class="box">
+          <div class="content-text">
+            <p>Prochaine injection</p>
+            <h1>20h30</h1>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div
+      class="content_div"
+      style="
+        background: white;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100%;
+        border-top-right-radius: 32px;
+        margin-top: -400px;
+        padding-top: 30px;
+        height: 150vh;
+        border-top-left-radius: 32px;
+        box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+      "
+    >
+      <div class="box-info">
+        <div class="content-text">
+          <h1>Dossier médicale</h1>
+          <p><a [routerLink]="['/dossier-form']">Renseignez ici</a></p>
+        </div>
+        <div class="image">
+          <img height="79" src="assets/img/medical-kit.png" />
+        </div>
+      </div>
+      <ion-card [routerLink]="['/form-glycemie']">
+        <img src="assets/img/glycemie.png" />
+        <ion-card-header>
+          <ion-card-subtitle>Ajouter des données</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+      <ion-card [routerLink]="['/repas-moment']">
+        <img src="assets/img/food.png" />
+        <ion-card-header>
+          <ion-card-subtitle>Repas du moment</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+      <ion-card [routerLink]="['/conseil-jour']">
+        <img src="assets/img/doctor.png" />
+        <ion-card-header>
+          <ion-card-subtitle>Conseils du jour</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+      <ion-card [routerLink]="['/historique-glycemie']">
+        <img src="assets/img/historique.jpg" />
+        <ion-card-header>
+          <ion-card-subtitle> historique glycemique </ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
 </ion-content>

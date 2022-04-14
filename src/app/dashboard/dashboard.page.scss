@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,500&display=swap");
+
+ion-content {
+  --gray: #797d7f;
+
+  --background: linear-gradient(to right, #b91d73, #f953c6);
+}
+
+.main_content_div {
+  width: 100%;
+  .menu_btn {
+    position: relative;
+    top: 40px;
+    left: 10px;
+  }
+
+  .user_div {
+    padding: 20px;
+    width: 100%;
+    height: 260px;
+    --background: linear-gradient(to right, #b91d73, #f953c6);
+    display: flex;
+    padding-top: 70px;
+    justify-content: space-between;
+  }
+  .first-div {
+    padding-top: 45px;
+    .welcome {
+      font-size: 18px;
+      color: white;
+      font-weight: 500;
+    }
+    .username {
+      font-size: 24px;
+      color: white;
+      font-weight: 600;
+    }
+  }
+  .user_back {
+    height: 100px;
+    width: 80px;
+    border: 3px solid white;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 7px;
+  }
+}
+
+.content-div {
+  background: #f9f7f7;
+  width: 100%;
+  border-top-right-radius: 32px;
+  margin-top: -40px;
+  padding-top: 30px;
+  height: 100vh;
+  border-top-left-radius: 32px;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #fbfbfb;
+
+  .hello_lbl {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    margin-top: 10px;
+  }
+}
+
+// IMPORT
+@import url("https://fonts.googleapis.com/css?family=Muli:300,400,700,900");
+
+// Variables
+$mainC: #f1f3f6;
+$secC: #9dabc0;
+$svgC: rgba(#929cd0, 0.8);
+$sz: 300px;
+
+// Placeholders
+%center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Main Structure
+.container {
+  width: 100%;
+  height: 97vh;
+  // border: 1px solid black;
+}
+
+.box {
+  @extend %center;
+  margin-left: 28px;
+  float: left;
+  flex-direction: column;
+  width: 100px;
+  height: 100px;
+  // border: 1px solid #fff;
+  background: $mainC;
+  border-radius: 20px;
+  box-shadow: inset 0 0 15px rgba(55, 84, 170, 0),
+    inset 0 0 20px rgba(255, 255, 255, 0), 7px 7px 15px rgba(55, 84, 170, 0.15),
+    -7px -7px 20px rgba(255, 255, 255, 1),
+    inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+}
+
+.box-info {
+  @extend %center;
+  margin-left: 28px;
+  float: left;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 90%;
+  height: 100px;
+  // border: 1px solid #fff;
+  background: $mainC;
+  border-radius: 20px;
+  box-shadow: inset 0 0 15px rgba(55, 84, 170, 0),
+    inset 0 0 20px rgba(255, 255, 255, 0), 7px 7px 15px rgba(55, 84, 170, 0.15),
+    -7px -7px 20px rgba(255, 255, 255, 1),
+    inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+}
+
+.content-text p {
+  text-align: center;
+  color: var(--gray);
+  font-family: "Raleway", sans-serif;
+}
+.content-text h1 {
+  text-align: center;
+  font-weight: 900;
+  font-size: 23px;
+  font-family: "Raleway", sans-serif;
+}
+
+ion-card {
+  width: 38%;
+  margin-left: 26px;
+  float: left;
+}
+
+ion-card-subtitle {
+  font-family: "Raleway", sans-serif;
+  color: var(--gray);
+  font-size: 18px;
+  text-align: center;
+}
+
+.image {
+  float: right;
+  position: relative;
+  margin-top: -104px;
+  margin-right: -267px;
+}

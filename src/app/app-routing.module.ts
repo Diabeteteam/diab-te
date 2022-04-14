@@ -29,7 +29,43 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardPageModule),
+  },
+  {
+    path: 'dossier-form',
+    loadChildren: () =>
+      import('./dossier-form/dossier-form.module').then(
+        (m) => m.DossierFormPageModule
+      ),
+  },
+  {
+    path: 'repas-moment',
+    loadChildren: () =>
+      import('./repas-moment/repas-moment.module').then(
+        (m) => m.RepasMomentPageModule
+      ),
+  },
+  {
+    path: 'conseil-jour',
+    loadChildren: () =>
+      import('./conseil-jour/conseil-jour.module').then(
+        (m) => m.ConseilJourPageModule
+      ),
+  },
+  {
+    path: 'historique-glycemie',
+    loadChildren: () =>
+      import('./historique-glycemie/historique-glycemie.module').then(
+        (m) => m.HistoriqueGlycemiePageModule
+      ),
+  },
+  {
+    path: 'form-glycemie',
+    loadChildren: () =>
+      import('./form-glycemie/form-glycemie.module').then(
+        (m) => m.FormGlycemiePageModule
+      ),
   },
 ];
 
