@@ -7,13 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { FormGlycemiePageRoutingModule } from './form-glycemie-routing.module';
 
 import { FormGlycemiePage } from './form-glycemie.page';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FormGlycemiePageRoutingModule
+    FormGlycemiePageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [FormGlycemiePage]
 })

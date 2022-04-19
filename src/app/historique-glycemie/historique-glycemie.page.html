@@ -5,5 +5,19 @@
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-item *ngFor="let test of tests">
+      <ion-avatar slot="start">
+        <h2>{{test.taux_glycemie}}</h2>
+      </ion-avatar>
+      <ion-label>
+        <h2>
+          Depuis le {{test.date.toMillis() | date:'yyyy/MM/dd '}} à
+          {{test.date.toMillis() | date:'h:mm a'}}
+        </h2>
 
+        <p>{{test.observation}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
