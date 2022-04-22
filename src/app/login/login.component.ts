@@ -14,7 +14,13 @@ export class LoginComponent implements OnInit {
   constructor(
     public router: Router,
     public fireService: FirebaseServiceService
-  ) {}
+  ) {
+    if (localStorage.getItem('user')) {
+      this.router.navigateByUrl('/dashboard');
+    } else {
+      this.router.navigateByUrl('/login');
+    }
+  }
 
   ngOnInit() {}
 
@@ -25,10 +31,10 @@ export class LoginComponent implements OnInit {
         if (res.user.uid) {
           this.userData = res.user;
 
-          if (localStorage.getItem('welcome')) {
+          if (localStorage.getItem('user')) {
             this.router.navigateByUrl('/dashboard');
           } else {
-            this.router.navigateByUrl('/welcome');
+            this.router.navigateByUrl('/login');
           }
         }
       },

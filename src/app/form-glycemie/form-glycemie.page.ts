@@ -11,6 +11,8 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./form-glycemie.page.scss'],
 })
 export class FormGlycemiePage implements OnInit {
+  message: any;
+  titre: any;
   glycemieForm: FormGroup;
   id: any;
   today: any;
@@ -38,9 +40,28 @@ export class FormGlycemiePage implements OnInit {
       this.firebaseServiceService
         .create(this.glycemieForm.value)
         .then(() => {
+          if (
+            this.glycemieForm.controls.taux_glycemie.value > 0.7 &&
+            this.glycemieForm.controls.taux_glycemie.value < 1
+          ) {
+            this.message = 'Votre glycemie est normal';
+            this.titre = 'Bravoo!!!';
+          } else if (
+            this.glycemieForm.controls.taux_glycemie.value > 1 &&
+            this.glycemieForm.controls.taux_glycemie.value < 1.25
+          ) {
+            this.titre = 'Suivez bien votre regime!!!';
+            this.message = 'Vous faites une hyperglycemie modérée';
+          } else if (this.glycemieForm.controls.taux_glycemie.value > 1.26) {
+            this.titre = 'Faites attention!!!';
+            this.message = 'Vous une hyperglycemie!!!';
+          } else {
+            this.titre = `Attention à l'hypoglycémie!!!`;
+            this.message = 'Prenez immédiatement du sucre rapide!!!';
+          }
           this.glycemieForm.reset();
           //this.router.navigate(['/' ]);
-          console.log('succes');
+
           this.presentAlert();
         })
         .catch((err) => {
@@ -62,8 +83,8 @@ export class FormGlycemiePage implements OnInit {
   async presentAlert() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Merci!',
-      message: 'Merci de votre collaboration',
+      header: `${this.titre}`,
+      message: `${this.message}`,
       buttons: ['OK'],
     });
 

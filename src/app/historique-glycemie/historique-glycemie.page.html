@@ -1,23 +1,86 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>historique-glycemie</ion-title>
+    <ion-buttons slot="start">
+      <ion-button
+        class="backbtn"
+        routerLink="/dashboard"
+        routerDirection="back"
+      >
+        Retour
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let test of tests">
-      <ion-avatar slot="start">
-        <h2>{{test.taux_glycemie}}</h2>
-      </ion-avatar>
-      <ion-label>
-        <h2>
-          Depuis le {{test.date.toMillis() | date:'yyyy/MM/dd '}} à
-          {{test.date.toMillis() | date:'h:mm a'}}
-        </h2>
+  <div
+    class="p-4 max-w-md bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700"
+  >
+    <div class="flex justify-between items-center mb-4">
+      <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">
+        Votre historique
+      </h5>
+    </div>
 
-        <p>{{test.observation}}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+    <div class="flow-root">
+      <div
+        *ngFor="let test of tests"
+        class="mt-2 flex flex-col p-8 bg-gray-800 shadow-md hover:shodow-lg rounded-2xl"
+      >
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <div
+                class="w-12 h-12 text-white font-black bg-gray-800 rounded-full"
+              >
+                {{test.taux_glycemie}} g/L
+              </div>
+            </div>
+            <div class="flex flex-col ml-3">
+              <div class="font-black eading-none text-gray-100">
+                {{test.observation}}
+              </div>
+              <p class="text-sm text-gray-500 leading-none mt-1">
+                {{test.date.toMillis() | date:'yyyy/MM/dd '}} à
+                {{test.date.toMillis() | date:'h:mm a'}}
+              </p>
+            </div>
+          </div>
+          <button
+            *ngIf="test.taux_glycemie > 0.7 &&
+            test.taux_glycemie <= 1"
+            class="font-black flex-no-shrink bg-blue-700 px-5 ml-4 py-2 text-sm shadow-sm hover:shadow-lg tracking-wider border-2 border-red-500 text-white rounded-full"
+          >
+            Bon!!!
+          </button>
+
+          <button
+            *ngIf="
+
+            test.taux_glycemie > 1 &&
+            test.taux_glycemie < 1.25"
+            class="flex-no-shrink bg-sky-900 px-5 ml-4 py-2 text-sm shadow-sm hover:shadow-lg font-black tracking-wider border-2 border-red-500 text-white rounded-full"
+          >
+            Modérée!!!
+          </button>
+          <button
+            *ngIf="
+
+       test.taux_glycemie> 1.26"
+            class="flex-no-shrink bg-red-700 px-5 ml-4 py-2 text-sm shadow-sm hover:shadow-lg font-black tracking-wider border-2 border-red-500 text-white rounded-full"
+          >
+            Danger!!!
+          </button>
+          <button
+            *ngIf="
+
+       test.taux_glycemie <=0.7"
+            class="flex-no-shrink bg-teal-200 px-5 ml-4 py-2 text-sm shadow-sm hover:shadow-lg font-black tracking-wider border-2 border-red-500 text-white rounded-full"
+          >
+            Danger!!!
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>

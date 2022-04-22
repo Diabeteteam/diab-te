@@ -1,19 +1,32 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { Injectable, NgModule } from '@angular/core';
+import {
+  ActivatedRouteSnapshot,
+  PreloadAllModules,
+  Router,
+  RouterModule,
+  RouterStateSnapshot,
+  Routes,
+} from '@angular/router';
+import { CanActivate } from '@angular/router';
+import AlwaysAuthGuard from './AlwaysAuthGuard';
 
 const routes: Routes = [
   {
     path: 'welcome',
+    canActivate: [AlwaysAuthGuard],
+
     loadChildren: () =>
       import('./welcome/welcome.module').then((m) => m.WelcomeModule),
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'welcome',
     pathMatch: 'full',
   },
   {
     path: 'login',
+    canActivate: [AlwaysAuthGuard],
+
     loadChildren: () =>
       import('./login/login.module').then((m) => m.LoginModule),
   },
@@ -73,6 +86,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
+  providers: [AlwaysAuthGuard],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

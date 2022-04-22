@@ -59,6 +59,21 @@ export class FirebaseServiceService {
     return data;
   }
 
+  signoutUser() {
+    return new Promise<void>((resolve, reject) => {
+      if (this.auth.currentUser) {
+        this.auth
+          .signOut()
+          .then(() => {
+            console.log('Sign out');
+            resolve();
+          })
+          .catch(() => {
+            reject();
+          });
+      }
+    });
+  }
   get(uid) {
     // ;
     this.firestore

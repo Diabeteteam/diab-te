@@ -7,19 +7,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./welcome.component.scss'],
 })
 export class WelcomeComponent implements OnInit {
-  constructor(private router: Router) {}
-
-  ngOnInit() {
-    if (localStorage.getItem('welcome')) {
+  constructor(private router: Router) {
+    if (localStorage.getItem('welcome') && !localStorage.getItem('user')) {
+      this.router.navigateByUrl('/login');
+    } else if (
+      localStorage.getItem('user') &&
+      localStorage.getItem('welcome')
+    ) {
       this.router.navigateByUrl('/dashboard');
     }
   }
 
+  ngOnInit() {}
+
   goTo() {
     if (!localStorage.getItem('welcome')) {
-      console.log('welcome');
-
       localStorage.setItem('welcome', 'true');
+      this.router.navigateByUrl('/login');
+    }
+    if (localStorage.getItem('welcome') && localStorage.getItem('user')) {
       this.router.navigateByUrl('/dashboard');
     }
   }

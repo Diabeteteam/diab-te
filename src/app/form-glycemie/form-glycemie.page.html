@@ -1,69 +1,117 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-button class="backbtn" routerLink="/welcome" routerDirection="back">
-                <img src="../../assets/retour.png" style="width: 9%;left: 5;position: absolute;" alt="tt" /> retour
-            </ion-button>
-        </ion-buttons>
-        <ion-title>
-            Test
-        </ion-title>
-    </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button class="backbtn" routerLink="/welcome" routerDirection="back">
+        <img
+          src="../../assets/retour.png"
+          style="width: 9%; left: 5; position: absolute"
+          alt="tt"
+        />
+        Retour
+      </ion-button>
+    </ion-buttons>
+    <ion-title> Test de glycemie </ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-    <div class="div1">
-        <ion-card class="card1">
-            <img src="assets/img/glycemie01.png" alt="tt" />
-            <ion-card-header>
-                <ion-card-subtitle><b>Saisir votre taux de glycemie</b></ion-card-subtitle>
+  <div class="div1">
+    <ion-card class="card1">
+      <ion-card-header>
+        <ion-card-subtitle
+          ><b>Saisir votre taux de glycemie</b></ion-card-subtitle
+        >
 
+        <div class="ion-padding container">
+          <div class="form-container">
+            <form [formGroup]="glycemieForm" (ngSubmit)="onSubmit()" id="fo">
+              <ion-item>
+                <ion-label position="floating"> Taux Glycemie </ion-label>
+                <ion-input
+                  formControlName="taux_glycemie"
+                  type="Number"
+                  step="0.1"
+                  required
+                >
+                </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating"> Observation </ion-label>
+                <ion-textarea
+                  formControlName="observation"
+                  type="text"
+                  placeholder="Comment vous sentez-vous actuellement"
+                  required
+                >
+                </ion-textarea>
+              </ion-item>
 
-                <div class="ion-padding container">
+              <ion-item hidden>
+                <ion-label position="floating"> date </ion-label>
+                <ion-input formControlName="date" [(ngModel)]="today" required>
+                </ion-input>
+              </ion-item>
+              <ion-item hidden>
+                <ion-label position="floating"> UID </ion-label>
+                <ion-input
+                  formControlName="uid"
+                  type="text"
+                  value="{{this.id}}"
+                  required
+                  hidden
+                >
+                </ion-input>
+              </ion-item>
 
-                    <div class="form-container">
-                        <form [formGroup]="glycemieForm" (ngSubmit)="onSubmit()" id="fo">
-                            <ion-item>
-                                <ion-label position="floating">
-                                    Taux Glycemie
-                                </ion-label>
-                                <ion-input formControlName="taux_glycemie" type="Number" step="0.1" required>
-                                </ion-input>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label position="floating">
-                                    Observation
-                                </ion-label>
-                                <ion-textarea formControlName="observation" type="text" placeholder="Comment vous sentez-vous actuellement" required>
+              <button
+                class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                type="submit"
+                expand="block"
+                id="aj"
+              >
+                Ajouter
+              </button>
+            </form>
+          </div>
+        </div>
+      </ion-card-header>
+    </ion-card>
+  </div>
 
-                                </ion-textarea>
-                            </ion-item>
-
-                            <ion-item hidden>
-                                <ion-label position="floating">
-                                    date
-                                </ion-label>
-                                <ion-input formControlName="date" [(ngModel)]="today" required>
-                                </ion-input>
-
-                            </ion-item>
-                            <ion-item hidden>
-                                <ion-label position="floating">
-                                    UID
-                                </ion-label>
-                                <ion-input formControlName="uid" type="text" value="{{this.id}}" required hidden>
-
-                                </ion-input>
-                            </ion-item>
-                            <ion-button class="ion-margin-top" type="submit" expand="block" id="aj">
-                                Ajouter
-                            </ion-button>
-
-                        </form>
-                    </div>
-                </div>
-            </ion-card-header>
-        </ion-card>
+  <div
+    class="mt-10 flex flex-col p-8 bg-gray-800 shadow-md hover:shodow-lg rounded-2xl"
+  >
+    <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-16 h-16 rounded-2xl p-3 border border-gray-800 text-blue-400 bg-gray-900"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          ></path>
+        </svg>
+        <div class="flex flex-col ml-3">
+          <div class="font-medium leading-none text-gray-100">
+            Utilisez plutôt votre bluetooth
+          </div>
+          <p class="text-sm text-gray-500 leading-none mt-1">
+            Vous pouvez aller plus rapidement en connectant votre appareil à
+            l'application.
+          </p>
+        </div>
+      </div>
+      <button
+        class="flex-no-shrink bg-blue-700 px-5 ml-4 py-2 text-sm shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-red-500 text-white rounded-full"
+      >
+        Delete
+      </button>
     </div>
-
+  </div>
 </ion-content>

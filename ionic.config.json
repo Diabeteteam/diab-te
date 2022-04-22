@@ -1,7 +1,8 @@
 {
   "name": "Diabete_care",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }
