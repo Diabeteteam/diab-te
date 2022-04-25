@@ -11,6 +11,7 @@ export class AppComponent {
   constructor(private platform: Platform, private router: Router) {}
 
   initializeApp() {
+    console.log('init');
     this.platform.ready().then(() => {
       if (!localStorage.getItem('welcome')) {
         console.log('welcome');

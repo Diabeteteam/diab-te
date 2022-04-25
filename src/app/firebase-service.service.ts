@@ -66,6 +66,7 @@ export class FirebaseServiceService {
           .signOut()
           .then(() => {
             console.log('Sign out');
+            localStorage.removeItem('user');
             resolve();
           })
           .catch(() => {
