@@ -52,9 +52,9 @@ export class FormGlycemiePage implements OnInit {
           ) {
             this.titre = 'Suivez bien votre regime!!!';
             this.message = 'Vous faites une hyperglycemie modérée';
-          } else if (this.glycemieForm.controls.taux_glycemie.value > 1.26) {
+          } else if (this.glycemieForm.controls.taux_glycemie.value > 1.25) {
             this.titre = 'Faites attention!!!';
-            this.message = 'Vous une hyperglycemie!!!';
+            this.message = 'Vous faites une hyperglycemie!!!';
           } else {
             this.titre = `Attention à l'hypoglycémie!!!`;
             this.message = 'Prenez immédiatement du sucre rapide!!!';
