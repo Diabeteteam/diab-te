@@ -1,0 +1,49 @@
+<div
+  class="content_div"
+  style="
+    background: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: -50px;
+    height: 187px;
+    width: 100%;
+    border-top-right-radius: 32px;
+    padding-top: 30px;
+    border-top-left-radius: 32px;
+    box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+  "
+>
+  <div class="flex">
+    <div class="flex-1 w-64">
+      <div class="box">
+        <div class="content-text">
+          <div *ngIf="lastTaux; then thenBlock; else elseBlock"></div>
+          <ng-template #thenBlock>
+            <p>Dernière glycémie</p>
+            <h1>{{ lastTaux }} g/L</h1>
+          </ng-template>
+          <ng-template #elseBlock>
+            <p>Dernière glycémie</p>
+            <h1>Aucun</h1>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div class="flex-1 w-64">
+      <div class="box">
+        <div class="content-text">
+          <p>Test total</p>
+          <h1>{{ total }}</h1>
+        </div>
+      </div>
+    </div>
+    <div class="flex-1 w-64">
+      <div class="box">
+        <div class="content-text">
+          <p>Prochaine injection</p>
+          <h1>20h30</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

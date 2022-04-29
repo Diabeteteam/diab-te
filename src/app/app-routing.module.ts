@@ -25,7 +25,6 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    canActivate: [AlwaysAuthGuard],
 
     loadChildren: () =>
       import('./login/login.module').then((m) => m.LoginModule),

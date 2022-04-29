@@ -24,13 +24,13 @@
 
         <div class="ion-padding container">
           <div class="form-container">
-            <form [formGroup]="glycemieForm" (ngSubmit)="onSubmit()" id="fo">
+            <form [formGroup]="glycemieForm" id="fo">
               <ion-item>
                 <ion-label position="floating"> Taux Glycemie </ion-label>
                 <ion-input
                   formControlName="taux_glycemie"
                   type="Number"
-                  step="0.1"
+                  placeholder="Glycemie"
                   required
                 >
                 </ion-input>
@@ -68,6 +68,7 @@
                 type="submit"
                 expand="block"
                 id="aj"
+                (click)="testSave()"
               >
                 Ajouter
               </button>

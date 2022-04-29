@@ -1,0 +1,110 @@
+<div
+  style="
+    background: white;
+    background-repeat: no-repeat;
+    width: 100%;
+    border-top-right-radius: 32px;
+    padding-top: 30px;
+    border-top-left-radius: 32px;
+    box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+    position: relative;
+    display: inline-block;
+  "
+>
+  <div class="w-full rounded shadow-md shadow-indigo-600">
+    <div class="p-4 bg-indigo-600">
+      <div>
+        <h2 class="mb-4 text-xl text-center font-bold text-gray-100">
+          <span class="underline decoration-gray-100 decoration-wavy">
+            Dossier Medical
+          </span>
+        </h2>
+        <p class="text-gray-100 text-center">
+          <span>
+            <a [routerLink]="['/dossier-form']">Renseignez ici</a>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex mb-4">
+    <div [routerLink]="['/form-glycemie']" class="w-full">
+      <div
+        class="max-w-sm ml-2 mt-7 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+      >
+        <a href="#">
+          <img class="rounded-t-lg" src="assets/img/test.webp" alt="" />
+        </a>
+        <div class="p-5">
+          <a href="#">
+            <h5
+              class="mb-2 text-sm text-center font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              EFFECTUER UN TEST
+            </h5>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div [routerLink]="['/repas-moment']" class="w-full">
+      <div
+        class="max-w-sm ml-2 mt-7 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+      >
+        <a href="#">
+          <img class="rounded-t-lg" src="assets/img/regime.jpeg" alt="" />
+        </a>
+        <div class="p-5">
+          <a href="#">
+            <h5
+              class="mb-2 text-sm text-center font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              VOIR VOTRE REGIME
+            </h5>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex mb-4">
+    <div [routerLink]="['/conseil-jour']" class="w-full">
+      <div
+        class="max-w-sm ml-2 mt-7 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+      >
+        <a href="#">
+          <img class="rounded-t-lg" src="assets/img/advice.jpg" alt="" />
+        </a>
+        <div class="p-5">
+          <a href="#">
+            <h5
+              class="mb-2 text-sm text-center font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              CONSEILS
+            </h5>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div [routerLink]="['/historique-glycemie']" class="w-full">
+      <div
+        class="max-w-sm ml-2 mt-7 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+      >
+        <a href="#">
+          <img class="rounded-t-lg" src="assets/img/history.jpg" alt="" />
+        </a>
+        <div class="p-5">
+          <a href="#">
+            <h5
+              class="mb-2 text-sm text-center font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              HISTORIQUES
+            </h5>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

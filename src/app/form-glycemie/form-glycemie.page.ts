@@ -33,41 +33,38 @@ export class FormGlycemiePage implements OnInit {
     });
     this.uid();
   }
-  onSubmit() {
-    if (!this.glycemieForm.valid) {
-      return false;
-    } else {
-      this.firebaseServiceService
-        .create(this.glycemieForm.value)
-        .then(() => {
-          if (
-            this.glycemieForm.controls.taux_glycemie.value > 0.7 &&
-            this.glycemieForm.controls.taux_glycemie.value < 1
-          ) {
-            this.message = 'Votre glycemie est normal';
-            this.titre = 'Bravoo!!!';
-          } else if (
-            this.glycemieForm.controls.taux_glycemie.value > 1 &&
-            this.glycemieForm.controls.taux_glycemie.value < 1.25
-          ) {
-            this.titre = 'Suivez bien votre regime!!!';
-            this.message = 'Vous faites une hyperglycemie modérée';
-          } else if (this.glycemieForm.controls.taux_glycemie.value > 1.25) {
-            this.titre = 'Faites attention!!!';
-            this.message = 'Vous faites une hyperglycemie!!!';
-          } else {
-            this.titre = `Attention à l'hypoglycémie!!!`;
-            this.message = 'Prenez immédiatement du sucre rapide!!!';
-          }
-          this.glycemieForm.reset();
-          //this.router.navigate(['/' ]);
+  testSave() {
+    console.log(this.glycemieForm);
 
-          this.presentAlert();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+    this.firebaseServiceService
+      .create(this.glycemieForm.value)
+      .then(() => {
+        if (
+          this.glycemieForm.controls.taux_glycemie.value > 0.7 &&
+          this.glycemieForm.controls.taux_glycemie.value < 1
+        ) {
+          this.message = 'Votre glycemie est normal';
+          this.titre = 'Bravoo!!!';
+        } else if (
+          this.glycemieForm.controls.taux_glycemie.value > 1 &&
+          this.glycemieForm.controls.taux_glycemie.value < 1.25
+        ) {
+          this.titre = 'Suivez bien votre regime!!!';
+          this.message = 'Vous faites une hyperglycemie modérée';
+        } else if (this.glycemieForm.controls.taux_glycemie.value > 1.25) {
+          this.titre = 'Faites attention!!!';
+          this.message = 'Vous faites une hyperglycemie!!!';
+        } else {
+          this.titre = `Attention à l'hypoglycémie!!!`;
+          this.message = 'Prenez immédiatement du sucre rapide!!!';
+        }
+        this.glycemieForm.reset();
+        this.presentAlert();
+        this.router.navigateByUrl('/dashboard', { replaceUrl: true });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   uid() {
@@ -91,6 +88,6 @@ export class FormGlycemiePage implements OnInit {
     await alert.present();
 
     const { role } = await alert.onDidDismiss();
-    this.router.navigate(['/dashboard']);
+    //  this.router.navigate(['/dashboard']);
   }
 }

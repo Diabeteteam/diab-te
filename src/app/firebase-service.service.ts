@@ -24,12 +24,10 @@ export class FirebaseServiceService {
     public auth: AngularFireAuth
   ) {
     this.auth.authState.subscribe((user) => {
-      if (user) {
+      console.log(user);
+      if (user != null) {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('user'));
-      } else {
-        localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
       }
     });

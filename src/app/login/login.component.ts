@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { FirebaseServiceService } from '../firebase-service.service';
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     public router: Router,
-    public fireService: FirebaseServiceService
+    public fireService: FirebaseServiceService,
+    public toastController: ToastController
   ) {
     if (localStorage.getItem('user')) {
       this.router.navigateByUrl('/dashboard');
@@ -27,21 +29,30 @@ export class LoginComponent implements OnInit {
   login() {
     this.fireService.loginWithEmail(this.email, this.password).then(
       (res) => {
-        console.log(res);
-        if (res.user.uid) {
-          this.userData = res.user;
-
-          if (localStorage.getItem('user')) {
-            this.router.navigateByUrl('/dashboard');
-          } else {
-            this.router.navigateByUrl('/login');
-          }
-        }
+        this.router.navigateByUrl('/dashboard', { replaceUrl: true });
       },
-      (err) => {
-        alert(err.message);
-        console.log(err);
+      async (err) => {
+        const toast = await this.toastController.create({
+          message: err.message,
+          duration: 5000,
+        });
+        toast.present();
       }
     );
+    //   const loading = await this.loadingController.create();
+    //   await loading.present();
+
+    //   const user = this.fireService.loginWithEmail(this.email, this.password);
+    //   await loading.dismiss();
+    //   console.log(localStorage.getItem('user'));
+
+    //   if (user != null) {
+    //     this.loaderDismissing();
+    //     console.log(user);
+    //     this.router.navigateByUrl('/dashboard', { replaceUrl: true });
+    //   } else {
+    //     this.showAlert('Connexion echouée', 'Please try again!');
+    //   }
+    // }
   }
 }

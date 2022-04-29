@@ -1,0 +1,119 @@
+// Variables
+$mainC: #f1f3f6;
+$secC: #9dabc0;
+$svgC: rgba(#929cd0, 0.8);
+$sz: 300px;
+
+// Placeholders
+%center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$bg: #232a3d;
+$c: #ffffff;
+$n: #ff4c13;
+$d: 10em;
+$t: 2.2s;
+
+.main {
+  display: inline-block;
+  position: absolute;
+  right: -124px;
+  .notification {
+    position: relative;
+    width: $d;
+    height: $d;
+
+    svg {
+      width: $d;
+      height: $d;
+
+      > path {
+        fill: $c;
+      }
+    }
+
+    &--bell {
+      animation: bell $t linear infinite;
+      transform-origin: 50% 0%;
+    }
+
+    &--bellClapper {
+      animation: bellClapper $t 0.1s linear infinite;
+    }
+
+    &--num {
+      position: absolute;
+      top: -10%;
+      /* left: 50%; */
+      font-size: 2.25rem;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      background-color: #ff4c13;
+      border: 4px solid #ff4c13;
+      color: #ffffff;
+      font-size: 12px;
+      text-align: center;
+      font-weight: bold;
+      animation: notification 2.2s linear;
+    }
+  }
+}
+
+@keyframes bell {
+  0%,
+  25%,
+  75%,
+  100% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  45% {
+    transform: rotate(-10deg);
+  }
+  55% {
+    transform: rotate(8deg);
+  }
+  60% {
+    transform: rotate(-8deg);
+  }
+}
+
+@keyframes bellClapper {
+  0%,
+  25%,
+  75%,
+  100% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(-0.15em);
+  }
+  45% {
+    transform: translateX(0.15em);
+  }
+  55% {
+    transform: translateX(-0.1em);
+  }
+  60% {
+    transform: translateX(0.1em);
+  }
+}
+
+@keyframes notification {
+  0%,
+  25%,
+  75%,
+  100% {
+    opacity: 1;
+  }
+  30%,
+  70% {
+    opacity: 0;
+  }
+}

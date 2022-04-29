@@ -38,10 +38,14 @@ export class DashboardPage implements OnInit {
     public fireService: FirebaseServiceService,
     private firebaseServiceService: FirebaseServiceService
   ) {}
-
+  ngOnInit() {
+    this.lastGlycemie();
+    this.totalTest();
+  }
   ionViewDidEnter() {
     this.weekGlycemie();
   }
+
   barChartMethod() {
     this.barChart = new Chart(this.barCanvas.nativeElement, {
       type: 'line',
@@ -125,7 +129,6 @@ export class DashboardPage implements OnInit {
     data.subscribe((queriedItems) => {
       this.lastTest = queriedItems;
       this.lastTaux = this.lastTest[0].taux_glycemie;
-      console.log(this.lastTest[0].taux_glycemie);
     });
   }
 
@@ -143,55 +146,13 @@ export class DashboardPage implements OnInit {
           y: queriedItems[test]['taux_glycemie'],
         };
       });
-      console.log('key', this.glycemiData);
       // // eslint-disable-next-line @typescript-eslint/dot-notation
       // this.glycemiData = queriedItems.map((doc) => doc['taux_glycemie']);
 
       // // eslint-disable-next-line @typescript-eslint/dot-notation
       // this.glycemieDay = queriedItems.map((doc) => doc['date']);
 
-      console.log(this.glycemiData);
-
       this.barChartMethod();
     });
-    console.log(this.glycemieDay);
-  }
-
-  async logOut() {
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      header: 'Decconnexion!',
-      message: 'Voulez-vous réellement vous <strong> déconnecter? </strong>!!!',
-      buttons: [
-        {
-          text: 'Annuler',
-          role: 'cancel',
-          cssClass: 'secondary',
-          id: 'cancel-button',
-          handler: (blah) => {
-            console.log('Confirm Cancel: blah');
-          },
-        },
-        {
-          text: 'Oui',
-          id: 'confirm-button',
-          handler: () => {
-            localStorage.removeItem('user');
-
-            this.fireService.signoutUser();
-            this.router.navigateByUrl('/login');
-
-            console.log('Confirm Okay');
-          },
-        },
-      ],
-    });
-
-    await alert.present();
-  }
-
-  ngOnInit() {
-    this.lastGlycemie();
-    this.totalTest();
   }
 }
