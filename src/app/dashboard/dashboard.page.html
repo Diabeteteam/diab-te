@@ -1,23 +1,24 @@
 <ion-content>
   <app-app-menu></app-app-menu>
-  <div class="main_content_div bg-sky-700">
+  <div class="main_content_div ">
+    <div style="display: inline-flex; justify-content: space-around;align-items: center;">
     <ion-buttons slot="start" class="menu_btn">
       <ion-menu-button
         style="margin-top: 10px"
         autoHide="false"
-        color="light"
+        color="dark"
       ></ion-menu-button>
-      <ion-label
-        style="color: white; font-weight: bold; margin-top: 10px"
-        class="welcome"
-        >DASHBOARD</ion-label
-      >
     </ion-buttons>
-    <app-notification-button></app-notification-button>
-    <ion-card-content style="margin-top: 5vh">
-      <canvas #barCanvas style="position: relative"></canvas>
+    <ion-label
+    style="color: black; font-weight: bold; margin-top: 10px"
+   
+    >Accueil</ion-label
+  >
+    <app-notification-button></app-notification-button></div>
+    <ion-card-content style="margin-top: 3vh">
+      <canvas #barCanvas style="position: relative ; background-color: rgb(255, 255, 255);box-shadow: rgb(17 12 46 / 15%) 0px 48px 100px 0px;border-radius: 10px; width: 100%;"></canvas>
     </ion-card-content>
     <app-stats-cards></app-stats-cards>
-    <app-cards></app-cards>
+    <app-cards ></app-cards>
   </div>
 </ion-content>

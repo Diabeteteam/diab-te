@@ -82,7 +82,7 @@ export class DashboardPage implements OnInit {
           // 'legend' now within object 'plugins {}'
           legend: {
             labels: {
-              color: 'white', // not 'fontColor:' anymore
+              color: 'black', // not 'fontColor:' anymore
               // fontSize: 18  // not 'fontSize:' anymore
               font: {
                 size: 18, // 'size' now within object 'font {}'
@@ -94,7 +94,7 @@ export class DashboardPage implements OnInit {
           y: {
             position: 'left',
             ticks: {
-              color: 'white',
+              color: 'black',
             },
           },
           x: {
@@ -104,7 +104,7 @@ export class DashboardPage implements OnInit {
               unit: 'day',
             },
             ticks: {
-              color: 'white',
+              color: 'black',
             },
           },
         },

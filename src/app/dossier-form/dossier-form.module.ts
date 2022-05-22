@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { DossierFormPageRoutingModule } from './dossier-form-routing.module';
 
 import { DossierFormPage } from './dossier-form.page';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DossierFormPageRoutingModule
+    DossierFormPageRoutingModule,
+    ReactiveFormsModule
+
   ],
   declarations: [DossierFormPage]
 })

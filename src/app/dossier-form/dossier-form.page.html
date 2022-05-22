@@ -1,9 +1,59 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>dossier-form</ion-title>
+    <ion-title>Dossier Medical</ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<div class="main">
+  
+  <div class=" " style="justify-content:center ;alignItems:center"> 
+    
+    <form [formGroup]="dossierform" id="dfo" class="form">
+  <div class="mt-3">
+    <div>
+      <label class="block" for="email">Poids</label>
+      <ion-input
+        formControlName="weight"
+        type="number"
+        placeholder="Entrez votre poids"
+        class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+      ></ion-input>
+    </div></div>
+    <div class="mt-3">
+      <div>
+        <label class="block" for="email">Taux de glycémie</label>
+        <ion-input
+        formControlName="taux_glycemie"
+          type="number"
+          placeholder="Entrez votre taux de glycémie"
+          class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+        ></ion-input>
+      </div></div>
+      <div class="mt-3">
+        <div>
+          <label class="block" for="email">Type de diabète</label>
+          <ion-input
+          formControlName="diab_type"
+            type="text"
+            placeholder="Entrez votre type de diabète"
+            class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+          ></ion-input>
+        </div></div>
+    </form>
+    <div class="bt">
+   
+    <button
+              class="button"
+                type="submit"
+                expand="block"
+                id="conf"
+                (click)="Save()"
+              >
+                Soumettre
+              </button></div>
+      </div>
+</div>
 
 </ion-content>

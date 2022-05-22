@@ -11,6 +11,15 @@ export class Glycemie {
   observation: string;
   date: string;
 }
+export class Dossier {
+
+  uid: string;
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  taux_glycemie: string;
+  diab_type: string;
+  weight: string;
+}
+
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +27,7 @@ export class Glycemie {
 export class FirebaseServiceService {
   userData: any;
   glycemie: any;
+  dossier : any;
 
   constructor(
     public firestore: AngularFirestore,
@@ -48,6 +58,9 @@ export class FirebaseServiceService {
   }
   create(glycemie: Glycemie) {
     return this.firestore.collection('glycemieTest').add(glycemie);
+  }
+  addDossier(dossier :Dossier) {
+    return this.firestore.collection('dossiers').add(dossier);
   }
 
   getTests(uid) {

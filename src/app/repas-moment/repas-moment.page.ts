@@ -131,7 +131,6 @@ pourPortionPoids(valeur){
  
 
 filterIngredients(ev: any) {
-  this.loadData()
   let val = ev.target.value;
   console.log("ingredient:",this.ingredientsList)
 
