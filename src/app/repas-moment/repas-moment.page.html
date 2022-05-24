@@ -33,7 +33,7 @@
           <h1 >{{ingredient.libelle}}</h1>
         </td>
         <td><div class="input-group">
-          <input class="form-control" type="number" min="0" step="10" placeholder="Poids" value="{{poids}}" ng-model="ingredient.poids" />
+          <input class="form-control" type="number" min="0" step="10" placeholder="Poids" value={{poids}}  (keyup)="pourPortionPoids($event.target.value )" ng-model="ingredient.poids" />
           <span class="input-group-addon">g</span>
         </div> </td>
         <td>{{ingredient.proteines}} g</td>

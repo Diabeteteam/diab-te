@@ -102,7 +102,12 @@ ajouterIngredientChoisi(ingredient){
 }
 
 
+getVal(event) {
+console.log(event.target.value)
+return this.poidsPortion * event.target.value / this.poids;
 
+
+}
 pourNombrePortions (valeur) {
   if ((this.nombrePortions === undefined) || (this.nombrePortions === null)) {
     return 0;
@@ -110,6 +115,7 @@ pourNombrePortions (valeur) {
   return valeur / this.nombrePortions;
 }
 pourPortionPoids(valeur){
+  console.log("valeur:", valeur)
 
  const  myObs1= from(this.ingredientChoisiList)
 
@@ -128,6 +134,7 @@ pourPortionPoids(valeur){
   
  
 }
+
  
 
 filterIngredients(ev: any) {
