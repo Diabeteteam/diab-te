@@ -37,10 +37,12 @@ export class DashboardPage implements OnInit {
     public router: Router,
     public fireService: FirebaseServiceService,
     private firebaseServiceService: FirebaseServiceService
-  ) {}
-  ngOnInit() {
+  ) {
     this.lastGlycemie();
     this.totalTest();
+  }
+  ngOnInit() {
+   
   }
   ionViewDidEnter() {
     this.weekGlycemie();
@@ -110,6 +112,7 @@ export class DashboardPage implements OnInit {
         },
       },
     });
+
   }
 
   totalTest() {
@@ -153,6 +156,7 @@ export class DashboardPage implements OnInit {
       // this.glycemieDay = queriedItems.map((doc) => doc['date']);
 
       this.barChartMethod();
+      
     });
   }
 }

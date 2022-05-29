@@ -1,59 +1,723 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Dossier Medical</ion-title>
-    
+    <ion-buttons slot="start">
+      <ion-button class="backbtn" routerLink="/welcome" routerDirection="back">
+        <img
+          src="../../assets/retour.png"
+          style="width: 9%; left: 5; position: absolute"
+          alt="tt"
+        />
+        Retour
+      </ion-button>
+    </ion-buttons>
+    <ion-title> Envoyer un dossier medical </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-<div class="main">
-  
-  <div class=" " style="justify-content:center ;alignItems:center"> 
-    
-    <form [formGroup]="dossierform" id="dfo" class="form">
-  <div class="mt-3">
-    <div>
-      <label class="block" for="email">Poids</label>
-      <ion-input
-        formControlName="weight"
-        type="number"
-        placeholder="Entrez votre poids"
-        class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-      ></ion-input>
-    </div></div>
-    <div class="mt-3">
+  <div class="h-32 md:h-auto md:w-1/2">
+    <img class="object-cover w-full h-full" src="https://cdn.pixabay.com/photo/2021/01/15/17/01/green-5919790__340.jpg"
+      alt="img" />
+  </div>
+  <div class="w-full max-w-sm ml-5">
+
+  <form [formGroup]="medicalForm"  class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" id="fo">
+
+    <span class="font-normal text-xl text-gray-700 dark:text-gray-400" > Etes-vous alcoolique? </span>
+
+    <div class="flex justify-center">
       <div>
-        <label class="block" for="email">Taux de glycémie</label>
-        <ion-input
-        formControlName="taux_glycemie"
-          type="number"
-          placeholder="Entrez votre taux de glycémie"
-          class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-        ></ion-input>
-      </div></div>
-      <div class="mt-3">
-        <div>
-          <label class="block" for="email">Type de diabète</label>
-          <ion-input
-          formControlName="diab_type"
-            type="text"
-            placeholder="Entrez votre type de diabète"
-            class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-          ></ion-input>
-        </div></div>
-    </form>
-    <div class="bt">
-   
-    <button
-              class="button"
-                type="submit"
-                expand="block"
-                id="conf"
-                (click)="Save()"
-              >
-                Soumettre
-              </button></div>
+        <div class="form-check">
+          <input
+            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="radio" type="radio" value="Oui" formControlName="alcoolique">
+          <span >- Oui </span>
+
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="radio" value="Non" formControlName="alcoolique">
+          <span class="inline">- Non </span>
+
+        </div>
+        
       </div>
+    </div>
+
+
+    <span class="font-normal text-xl text-gray-700 dark:text-gray-400"> Etes-vous fumeur? </span>
+
+    <div class="flex justify-center">
+      <div>
+        <div class="form-check">
+          <input
+            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="radio" value="Oui" formControlName="fumeur" required>
+          <span class="inline">- Oui </span>
+
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="radio" value="Non" formControlName="fumeur">
+          <span class="inline">- Non </span>
+
+        </div>
+      </div>
+    </div>
+
+    <span class="font-normal text-xl text-gray-700 dark:text-gray-400"> Etes-vous Diabétique? </span>
+
+    <div class="flex justify-center">
+      <div>
+        <div class="form-check">
+          <input
+            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="radio" value="Oui" formControlName="diabetique">
+          <span class="inline">- Oui </span>
+
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="radio" value="Non" formControlName="diabetique">
+          <span class="inline">- Non </span>
+
+        </div>
+      </div>
+    </div>
+    <span class="font-normal text-xl text-gray-700 dark:text-gray-400"> avez-vous la tension? </span>
+
+    <div class="flex justify-center">
+      <div>
+        <div class="form-check">
+          <input
+            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="radio" value="Oui" formControlName="tensionnaire">
+          <span class="inline">- Oui </span>
+
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="radio" value="Non" formControlName="tensionnaire">
+          <span class="inline">- Non </span>
+
+        </div>
+      </div>
+    </div>
+    <span class="font-normal text-xl text-gray-700 dark:text-gray-400"> Avez-vous des problème de vision? </span>
+
+    <div class="flex justify-center">
+      <div>
+        <div class="form-check">
+          <input
+            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="radio" value="Oui" formControlName="vision">
+          <span class="inline">- Oui </span>
+
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="radio" value="Non" formControlName="vision">
+          <span class="inline">- Non </span>
+
+        </div>
+      </div>
+    </div>
+    <span class="font-normal text-xl text-gray-700 dark:text-gray-400"> Souffrez-vous d'une maladie cardiovasculaire? </span>
+
+    <div class="flex justify-center">
+      <div>
+        <div class="form-check">
+          <input
+            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="radio" value="Oui" formControlName="cardiovasculaire">
+          <span class="inline">- Oui </span>
+
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="radio" value="Non" formControlName="cardiovasculaire">
+          <span class="inline">- Non </span>
+
+        </div>
+      </div>
+    </div>
+    <span class="font-normal text-xl text-gray-700 dark:text-gray-400"> Avez-vous déjà été opéré(e)? </span>
+
+    <div class="flex justify-center">
+      <div>
+        <div class="form-check">
+          <input
+            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="radio" value="Oui" formControlName="operation">
+          <span class="inline">- Oui </span>
+
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="radio" value="Non" formControlName="operation">
+          <span class="inline">- Non </span>
+
+        </div>
+      </div>
+    </div>
+    <span class="font-normal text-xl text-gray-700 dark:text-gray-400"> Etes-vous sportif? </span>
+
+    <div class="flex justify-center">
+      <div>
+        <div class="form-check">
+          <input
+            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="radio" value="Oui" formControlName="sportif">
+          <span class="inline">- Oui </span>
+
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="radio" value="Non" formControlName="sportif">
+          <span class="inline">- Non </span>
+
+        </div>
+      </div>
+    </div>
+    <button
+    style="margin:80px ;"
+    class="shadow m-55 content-center bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+    type="submit"
+    expand="block"
+    id="aj"
+    (click)="testSave()"
+  >
+    Enregistrer
+  </button>
+  </form>
 </div>
+
+
+    <!-- 
+  
+    <div>
+      <div class="h-32 md:h-auto md:w-1/2">
+        <img
+          class="object-cover w-full h-full"
+          src="https://cdn.pixabay.com/photo/2021/01/15/17/01/green-5919790__340.jpg"
+          alt="img"
+        />
+      </div>
+      <div class="flex justify-content-space-between ion-margin-top relative">
+        <div class="absolute full-width line"></div>
+        <div class="flex flex-column justify-content-center full-width"
+          *ngFor="let slide of slides; let index = index; let first = first; let last = last;">
+          <span [ngClass]="{ 'align-self-end': last, 'align-self-center': (!first && !last) }"
+            class="flex flex-column align-items-center justify-content-center bold text-medium radius"
+            style="width: 30px; height: 30px;"
+            [style.background]="slide === currentSlide ? 'var(--ion-color-primary)':'var(--ion-color-light-shade)'"
+            [style.color]="slide === currentSlide ? 'var(--ion-color-light)':'var(--ion-color-dark)'"
+            [ngClass]="{ 'align-self-end': last, 'align-self-center': (!first && !last) }">
+            {{ index + 1 }}
+          </span>
+          <span [style.color]="slide === currentSlide ? 'var(--ion-color-primary)':'var(--ion-color-medium)'"
+            [ngClass]="{ 'align-self-end': last, 'align-self-center': (!first && !last) }"
+            class="flex text-medium bold ion-margin-vertical">
+            {{ slide }}
+          </span>
+        </div>
+      </div>
+  
+      <ion-slides [options]="slidesOpts" (ionSlideDidChange)="onSlidesDidChange()"
+        (ionSlideWillChange)="onSlidesChanged()">
+        <ng-container *ngFor="let slide of slides">
+          <ion-slide>
+  
+            <div class="full-width ion-text-start">
+  
+              <form [formGroup]="billingForm" #billingFormRef="ngForm" novalidate *ngIf="slide === 'Personnelles'">
+  
+                
+  
+                <ion-row>
+                  <ion-col>
+                    <ion-item lines="none">
+                      <ion-label position="stacked">Sexe</ion-label>
+                      <ion-list formControlName="sexe">
+                        <ion-radio-group value="M">
+                          <ion-list-header>
+                            <ion-label>Masculin</ion-label>
+                          </ion-list-header>
+                      
+                          <ion-item>
+                            <ion-label>Feminin</ion-label>
+                            <ion-radio slot="start" value="F"></ion-radio>
+                          </ion-item>
+                      
+                        
+                        </ion-radio-group>
+                      </ion-list>
+                      <ion-input type="number" formControlName="sexe"></ion-input>
+                    </ion-item>
+                    <ion-text color="danger">
+                      <span class="text-tiny"
+                        [style.visibility]="poids?.errors?.required && billingFormRef.submitted ? '' : 'hidden'">
+                        Champ requis
+                      </span>
+                    </ion-text>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item lines="none">
+                      <ion-label position="stacked">Votre poids</ion-label>
+                      <ion-input type="number" formControlName="poids"></ion-input>
+                    </ion-item>
+                    <ion-text color="danger">
+                      <span class="text-tiny"
+                        [style.visibility]="poids?.errors?.required && billingFormRef.submitted ? '' : 'hidden'">
+                        Champ requis
+                      </span>
+                    </ion-text>
+                  </ion-col>
+  
+                  <ion-col>
+                    <ion-item lines="none">
+                      <ion-label position="stacked">Votre taille</ion-label>
+                      <ion-input type="text" formControlName="taille"></ion-input>
+                    </ion-item>
+                    <ion-text color="danger">
+                      <span class="text-tiny"
+                        [style.visibility]="taille?.errors?.required && billingFormRef.submitted ? '' : 'hidden'">
+                        Champ requis
+                      </span>
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+  
+                <ion-row>
+                  <ion-col>
+                    <ion-item lines="none">
+                      <ion-label position="stacked">Email</ion-label>
+                      <ion-input type="email" formControlName="email"></ion-input>
+                    </ion-item>
+                    <ion-text color="danger">
+                      <span class="text-tiny"
+                        [style.visibility]="billingEmail?.errors?.required && billingFormRef.submitted ? '' : 'hidden'">
+                        Field required
+                      </span>
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+  
+                <ion-row>
+                  <ion-col>
+                    <ion-item lines="none">
+                      <ion-label position="stacked">Address</ion-label>
+                      <ion-input type="text" formControlName="address"></ion-input>
+                    </ion-item>
+                    <ion-text color="danger">
+                      <span class="text-tiny"
+                        [style.visibility]="billingAddress?.errors?.required && billingFormRef.submitted ? '' : 'hidden'">
+                        Field required
+                      </span>
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+  
+                <ion-row>
+                  <ion-col>
+                    <ion-item lines="none">
+                      <ion-label position="stacked">City</ion-label>
+                      <ion-input type="text" formControlName="city"></ion-input>
+                    </ion-item>
+                    <ion-text color="danger">
+                      <span class="text-tiny"
+                        [style.visibility]="billingCity?.errors?.required && billingFormRef.submitted ? '' : 'hidden'">
+                        Field required
+                      </span>
+                    </ion-text>
+                  </ion-col>
+  
+                  <ion-col>
+                    <ion-item lines="none">
+                      <ion-label position="stacked">State</ion-label>
+                      <ion-input type="text" formControlName="state"></ion-input>
+                    </ion-item>
+                    <ion-text color="danger">
+                      <span class="text-tiny"
+                        [style.visibility]="billingState?.errors?.required && billingFormRef.submitted ? '' : 'hidden'">
+                        Field required
+                      </span>
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+  
+                <ion-row>
+                  <ion-col>
+                    <ion-item lines="none">
+                      <ion-label position="stacked">Zipcode</ion-label>
+                      <ion-input type="text" formControlName="zip" inputmode="numeric"></ion-input>
+                    </ion-item>
+                    <ion-text color="danger">
+                      <span class="text-tiny"
+                        [style.visibility]="billingZip?.errors?.required && billingFormRef.submitted ? '' : 'hidden'">
+                        Field required
+                      </span>
+                    </ion-text>
+                  </ion-col>
+  
+                  <ion-col>
+                    <ion-item lines="none">
+                      <ion-label position="stacked">Country code</ion-label>
+                      <ion-input type="text" formControlName="country_code" placeholder="two-letter code"></ion-input>
+                    </ion-item>
+                    <ion-text color="danger">
+                      <span class="text-tiny"
+                        [style.visibility]="billingCountryCode?.errors?.required && billingFormRef.submitted ? '' : 'hidden'">
+                        Field required
+                      </span>
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+  
+              </form>
+  
+              <form [formGroup]="shippingForm" #shippingFormRef="ngForm" novalidate *ngIf="slide === 'Shipping'">
+  
+                <ion-list-header class="ion-no-padding" style="min-height: auto;">
+                  <ion-label class="ion-text-center" color="primary">
+                    Shipping details
+                  </ion-label>
+                </ion-list-header>
+  
+                <ion-row>
+                  <ion-col>
+                    <ion-item lines="none">
+                      <ion-label position="stacked">Delivery address</ion-label>
+                      <ion-input type="text" formControlName="address"></ion-input>
+                    </ion-item>
+                    <ion-text color="danger">
+                      <span class="text-tiny"
+                        [style.visibility]="shippingAddress?.errors?.required && shippingFormRef.submitted ? '' : 'hidden'">
+                        Field required
+                      </span>
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+  
+                <ion-row>
+                  <ion-col>
+                    <ion-item lines="none">
+                      <ion-label position="stacked">Delivery contact number</ion-label>
+                      <input type="tel" formControlName="phone" />
+                    </ion-item>
+                    <ion-text color="danger">
+                      <span class="text-tiny"
+                        [style.visibility]="shippingPhone?.errors?.required && shippingFormRef.submitted ? '' : 'hidden'">
+                        Field required
+                      </span>
+                    </ion-text>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item class="item-select" lines="none">
+                      <ion-label position="stacked">Delivery time</ion-label>
+                      <select class="text-small" formControlName="delivery_time">
+                        <option [value]="null" disabled selected>
+                          Select time
+                        </option>
+                        <option *ngFor="let time of times" [value]="time">
+                          {{ time }}
+                        </option>
+                      </select>
+                    </ion-item>
+                    <ion-text color="danger">
+                      <span class="text-tiny"
+                        [style.visibility]="shippingDeliveryTime?.errors?.required && shippingFormRef?.submitted ? '' : 'hidden'">
+                        Field required
+                      </span>
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+  
+                <ion-row>
+                  <ion-col>
+                    <ion-item lines="none">
+                      <ion-label position="stacked">Message</ion-label>
+                      <ion-input type="text" formControlName="message"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+  
+                <div class="flex align-items-center full-width ion-margin-top">
+                  <div class="ion-margin-end">
+                    <h5 class="text-medium bold">Upload image</h5>
+                    <ion-button strong shape="round" color="primary" size="small" (click)="presentActionSheet()">
+                      Select
+                    </ion-button>
+                  </div>
+                  <div>
+                    <img class="img-thumb" [src]="imagePath" *ngIf="imagePath">
+                  </div>
+                </div>
+  
+              </form>
+  
+              <div [hidden]="slide !== 'Summary'">
+                <ion-list-header class="ion-no-padding" style="min-height: auto;">
+                  <ion-label class="ion-text-center" color="primary">
+                    Order details
+                  </ion-label>
+                </ion-list-header>
+  
+                <div *ngIf="shippingForm.valid">
+                  <p class="text-medium bold ion-text-uppercase">
+                    Shipping details
+                  </p>
+                  <div class="divider"></div>
+  
+                  <div *ngFor="let control of shippingForm.controls | keyvalue: originalOrder">
+                    <p class="text-medium margin-v-sm">
+                      <span class="bold">
+                        {{ control.key.replace('_', ' ') | titlecase }}:
+                      </span>
+                      {{ control.value.value || '--' }}
+                    </p>
+                  </div>
+                  <p class="text-medium margin-v-sm" *ngIf="imagePath">
+                    <span class="bold">
+                      Attachment:
+                    </span>
+                    <img class="img-thumb" [src]="imagePath">
+                  </p>
+                </div>
+  
+                <div *ngIf="billingForm.valid">
+                  <div class="divider"></div>
+                  <p class="text-medium bold ion-text-uppercase">
+                    Billing details
+                  </p>
+                  <div class="divider"></div>
+                  <p class="text-medium margin-v-sm"
+                    *ngFor="let control of billingForm.controls | keyvalue: originalOrder">
+                    <span class="bold">
+                      {{ control.key.replace('_', ' ') | titlecase }}:
+                    </span>
+                    {{ control.value.value || '--' }}
+                  </p>
+                </div>
+  
+                <div class="divider"></div>
+                <p class="text-medium bold ion-text-uppercase">
+                  Items
+                </p>
+                <div class="divider"></div>
+  
+                <ion-list>
+                  <ion-item *ngFor="let item of order?.items">
+                    <ion-label>
+                      <h2 class="text-medium bold">{{ item.name }}</h2>
+                    </ion-label>
+                    <div>
+                      <span class="text-medium">{{ item.amount | currency}}</span>
+                    </div>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>
+                      <h2 class="text-medium bold">Subtotal</h2>
+                    </ion-label>
+                    <div>
+                      <span class="text-medium">{{ order?.subtotal | currency}}</span>
+                    </div>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>
+                      <h2 class="text-medium bold">Shipping & Handling</h2>
+                    </ion-label>
+                    <div>
+                      <span class="text-medium">{{ order?.shippingFee | currency}}</span>
+                    </div>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>
+                      <h2 class="text-medium bold">Total</h2>
+                    </ion-label>
+                    <div>
+                      <span class="text-medium bold">{{ order?.total | currency}}</span>
+                    </div>
+                  </ion-item>
+                </ion-list>
+              </div>
+  
+              <form [formGroup]="paymentForm" #paymentFormRef="ngForm" novalidate *ngIf="slide === 'Payment'">
+  
+  
+                <ion-list-header class="ion-no-padding" style="min-height: auto;">
+                  <ion-label class="ion-text-center" color="primary">
+                    Pay order
+                  </ion-label>
+                </ion-list-header>
+  
+                <ion-row>
+                  <ion-col>
+                    <ion-item lines="none">
+                      <ion-label position="stacked">Card number</ion-label>
+                      <ion-input type="text" formControlName="number"></ion-input>
+                    </ion-item>
+                    <ion-text color="danger">
+                      <span class="text-tiny"
+                        [style.visibility]="paymentNumber?.errors?.required && paymentFormRef.submitted ? '' : 'hidden'">
+                        Field required
+                      </span>
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+  
+                <ion-row>
+                  <ion-col>
+                    <ion-item lines="none">
+                      <ion-label position="stacked">Expiration</ion-label>
+                      <ion-input type="text" formControlName="expiration"></ion-input>
+                    </ion-item>
+                    <ion-text color="danger">
+                      <span class="text-tiny"
+                        [style.visibility]="paymentExpiration?.errors?.required && paymentFormRef.submitted ? '' : 'hidden'">
+                        Field required
+                      </span>
+                    </ion-text>
+                  </ion-col>
+  
+                  <ion-col>
+                    <ion-item lines="none">
+                      <ion-label position="stacked">CVV</ion-label>
+                      <ion-input type="text" formControlName="cvv"></ion-input>
+                    </ion-item>
+                    <ion-text color="danger">
+                      <span class="text-tiny"
+                        [style.visibility]="paymentCvv?.errors?.required && paymentFormRef.submitted ? '' : 'hidden'">
+                        Field required
+                      </span>
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+  
+                <div class="ion-text-center">
+                  <ion-button type="button" style="width: 200px;" class="ion-margin-vertical" strong size="large"
+                    shape="round" color="primary" (click)="onNextButtonTouched()">
+                    Pay {{ order?.total | currency}}
+                  </ion-button>
+                </div>
+  
+                <div class="ion-text-center">
+                  <ion-button type="button" style="width: 200px;" class="ion-margin-vertical" strong size="large"
+                    shape="round" color="light" (click)="onBackButtonTouched()">
+                    Back
+                  </ion-button>
+                </div>
+  
+              </form>
+  
+            </div>
+  
+          </ion-slide>
+  
+        </ng-container>
+  
+      </ion-slides>
+  
+    </div>
+  
+  
+  <ion-footer>
+    <ion-toolbar>
+      <div class="full-width flex align-items-center justify-content-space-between">
+        <ion-button style="width: 120px;" strong shape="round" color="dark"
+          [style.visibility]="(isBeginning || isEnd) ? 'hidden' : ''" (click)="onBackButtonTouched()">
+          <span>Back</span>
+          <ion-icon slot="start" name="chevron-back"></ion-icon>
+        </ion-button>
+        <ion-button style="width: 120px;" strong shape="round" color="primary" [style.visibility]="isEnd ? 'hidden' : ''"
+          (click)="onNextButtonTouched()">
+          <span>Next</span>
+        </ion-button>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
+
+
+  <div class="main">
+
+
+    <div class="w-full max-w-xs">
+      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+            Username
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="username" type="text" placeholder="Username">
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+            Password
+          </label>
+          <input
+            class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            id="password" type="password" placeholder="******************">
+          <p class="text-red-500 text-xs italic">Please choose a password.</p>
+        </div>
+        <div class="flex items-center justify-between">
+          <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button">
+            Sign In
+          </button>
+          <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+            Forgot Password?
+          </a>
+        </div>
+      </form>
+      <p class="text-center text-gray-500 text-xs">
+        &copy;2020 Acme Corp. All rights reserved.
+      </p>
+    </div>
+
+    <!-- <div class=" " style="justify-content:center ;alignItems:center">
+
+      <form [formGroup]="dossierform" id="dfo" class="form">
+        <div class="mt-3">
+          <div>
+            <label class="block" for="email">Poids</label>
+            <ion-input formControlName="weight" type="number" placeholder="Entrez votre poids"
+              class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+            </ion-input>
+          </div>
+        </div>
+        <div class="mt-3">
+          <div>
+            <label class="block" for="email">Taux de glycémie</label>
+            <ion-input formControlName="taux_glycemie" type="number" placeholder="Entrez votre taux de glycémie"
+              class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+            </ion-input>
+          </div>
+        </div>
+        <div class="mt-3">
+          <div>
+            <label class="block" for="email">Type de diabète</label>
+            <ion-input formControlName="diab_type" type="text" placeholder="Entrez votre type de diabète"
+              class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600">
+            </ion-input>
+          </div>
+        </div>
+      </form>
+      <div class="bt">
+
+        <button class="button" type="submit" expand="block" id="conf" (click)="Save()">
+          Soumettre
+        </button>
+      </div>
+    </div> 
+  </div> -->
 
 </ion-content>

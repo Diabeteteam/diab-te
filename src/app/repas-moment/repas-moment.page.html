@@ -1,59 +1,111 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>repas-moment</ion-title>
+    <ion-buttons slot="start">
+      <ion-button class="backbtn" routerLink="/welcome" routerDirection="back">
+        <img
+          src="../../assets/retour.png"
+          style="width: 9%; left: 5; position: absolute"
+          alt="tt"
+        />
+        Retour
+      </ion-button>
+    </ion-buttons>
+    <ion-title> Choix du repas </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-searchbar (ionChange)="filterIngredients($event)"  [formControl]="searchField" debounce="100" (ionClear)="initiazileIngredients()"></ion-searchbar>
 
-  <ion-list lines="none"  *ngIf="display">
+  <img  src="assets/img/diet.jpg"
+  alt="img" />
+  <ion-list style="    position: relative;
+  top: -351px;
+" lines="none"  *ngIf="display">
     <ion-item *ngFor="let ingredient of ingredientsList ">
       <ion-label  (click)="ajouterIngredientChoisi(ingredient)" >{{ ingredient.libelle }}</ion-label>
     </ion-item>
   </ion-list>
 
-  <table>
-
-    <table>
-      <tr>
-        <th>Ingredient</th>
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">Ingredient</th>
                
-        <th>Poids</th>
-        <th>Proteines</th>
-        <th>Glucides</th>
-        <th>Lipides</th>
-        <th>Energies</th>
+        <th scope="col" class="px-6 py-3">Poids</th>
+        <th scope="col" class="px-6 py-3">Proteines</th>
+        <th scope="col" class="px-6 py-3">Glucides</th>
+        <th scope="col" class="px-6 py-3">Lipides</th>
+        <!-- <th scope="col" class="px-6 py-3">Energies</th> -->
 
       </tr>
-      <tr  *ngFor="let ingredient of ingredientChoisiList">
+<!-- 
+   <tbody>
+        <tr *ngFor="let ingredient of ingredientChoisiList" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 
-        <td>  
+
+        <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">  
+      
+          <h1 >{{ingredient.libelle}}</h1>
+        </td>
+        
+
+
+
+
+
+
+        <td>
+          <div class="input-group">
+          <input class="form-control" type="number" min="0" step="10" placeholder="Poids"  value={{poids}}   [(ngModel)]="poids_predefini" /> 
+        </div> </td>
+        <td>{{ConvertString(ingredient.proteines) * poids_predefini /100 }} g</td>
+         <td>{{ConvertString(ingredient.glucides) * poids_predefini /100 }}  g</td>
+        <td>{{ConvertString(ingredient.lipides) * poids_predefini /100 }}  g</td>
+        <td>{{ConvertString(ingredient.energie_ue) * poids_predefini /100 }}  g</td>
+        <td class="px-6 py-4 text-right">
+          <a  class="font-medium text-red-600 dark:text-red-500 hover:underline"  (click)="retirerIngredient(ingredient)" >Retirer</a>
+      </td>
+
+      </tr>
+    </tbody>
+ -->
+
+      <tbody>
+        <tr *ngFor="let ingredient of ingredientChoisiList" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+
+
+        <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">  
       
           <h1 >{{ingredient.libelle}}</h1>
         </td>
         <td><div class="input-group">
-          <input class="form-control" type="number" min="0" step="10" placeholder="Poids" value={{poids}}  (keyup)="pourPortionPoids($event.target.value )" ng-model="ingredient.poids" />
-          <span class="input-group-addon">g</span>
+          <!-- <input class="form-control" type="number" min="0" step="10" placeholder="Poids" value={{poids}}  (keyup)="pourPortionPoids($event.target.value )" ng-model="ingredient.poids" />  -->
+          <span class="input-group-addon"> {{poids}}g</span>
         </div> </td>
         <td>{{ingredient.proteines}} g</td>
         <td>{{ingredient.glucides}} g</td>
         <td>{{ingredient.lipides}} g</td>
-        <td>{{ingredient.energie}} g</td>
+        <!-- <td>{{ingredient.energie}} g</td> -->
+        <td class="px-6 py-4 text-right">
+          <a  class="font-medium text-red-600 dark:text-red-500 hover:underline"  (click)="retirerIngredient(ingredient)" >Retirer</a>
+      </td>
+
       </tr>
+    </tbody>
 
 
       <tfoot>
         <tr>
           <th class="text-right">Total</th>
           <th>{{totaux.poids}} g</th>
-          <th class="text-center">{{totaux.proteines }} g </th>
+          <th class="text-center" >{{totaux.proteines }} g </th>
           <th class="text-center">{{totaux.glucides }} g </th>
           <th class="text-center">{{totaux.lipides }} g</th>
-          <th class="text-center">{{totaux.energie }} kcal</th>
-          <th></th>
+          <!-- <th class="text-center">{{totaux.energie }} kcal</th> -->
         </tr>
-        <tr>
+        <!-- <tr>
           <th class="text-right">Pour une portion de</th>
           <th>
             <div class="input-group">
@@ -77,11 +129,21 @@
           <th class="text-center">{{pourNombrePortions(totaux.lipides)}} g</th>
           <th class="text-center">{{pourNombrePortions(totaux.energie)}} kcal</th>
           <th></th>
-        </tr>
+        </tr> -->
       </tfoot>
       
      
     </table>
-    
-  </table>      
+    <button
+    style="margin:80px ;"
+    class="shadow m-55 content-center bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+    type="submit"
+    expand="block"
+    id="aj"
+    (click)="enregistrerRepas()"
+  >
+    Enregistrer
+  </button>
+  </div>
+
 </ion-content>

@@ -20,6 +20,14 @@ export class Dossier {
   weight: string;
 }
 
+export class Repas{
+  uid: string;
+  date: Date;
+  libelle: string;
+  proteines: number; 
+  glucides: number; 
+  lipides: number;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -61,6 +69,11 @@ export class FirebaseServiceService {
   }
   addDossier(dossier :Dossier) {
     return this.firestore.collection('dossiers').add(dossier);
+  }
+
+
+  ajoutRepas(repas) {
+    return this.firestore.collection('repas').add(repas);
   }
 
   getTests(uid) {

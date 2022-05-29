@@ -1,13 +1,14 @@
 var app = angular.module("ciqual", [ "ngResource", "siyfion.sfTypeahead" ]);
 
 app.factory("Ingredients", [ "$resource" , function($resource) {
-	return $resource("assets/data/data.json");
+	return $resource("ciqual.json");
 } ]);
 
 app.controller("CiqualController", [ "$scope", "Ingredients", function($scope, Ingredients) {
+	console.log("ok"),
 
+    console.log("ciQUAL!!!")
 	$scope.ingredients = [];
-	
 	$scope.poidsPortion = 100;
 	$scope.nombrePortions = 4;
 	
