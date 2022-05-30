@@ -15,16 +15,16 @@
   <ion-content color="light">
     <aside class="w-full" aria-label="Sidebar">
       <div
-        class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800"
+        class="overflow-y-auto py-4 px-3 bg-gray-50 rounded "
       >
         <ul class="space-y-2">
-          <li>
+          <li class="border-b">
             <a
               [routerLink]="['/dashboard']"
-              class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg  hover:bg-gray-100 "
             >
               <svg
-                class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                class="w-6 h-6 text-gray-500 transition duration-75  group-hover:text-gray-900 "
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -36,11 +36,11 @@
             </a>
           </li>
 
-          <li>
+          <li class="border-b">
             <a
               href="/form-glycemie"
               [routerLink]="['/form-glycemie']"
-              class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg  hover:bg-gray-100 "
             >
               <svg
                 class="w-6 h-6"
@@ -59,10 +59,10 @@
               <span class="flex-1 ml-3 whitespace-nowrap">Tests</span>
             </a>
           </li>
-          <li>
+          <li class="border-b">
             <a
               [routerLink]="['/historique-glycemie']"
-              class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg  hover:bg-gray-100"
             >
               <svg
                 class="w-6 h-6"
@@ -81,10 +81,10 @@
               <span class="flex-1 ml-3 whitespace-nowrap">Historiques</span>
             </a>
           </li>
-          <li>
+          <li class="border-b">
             <a
               [routerLink]="['/repas-moment']"
-              class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg  hover:bg-gray-100 "
             >
               <svg
                 class="w-6 h-6"
@@ -103,10 +103,10 @@
               <span class="flex-1 ml-3 whitespace-nowrap">Mon regime</span>
             </a>
           </li>
-          <li>
+          <li class="border-b">
             <a
               [routerLink]="['/conseil-jour']"
-              class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg  hover:bg-gray-100 "
             >
               <svg
                 class="w-6 h-6"
@@ -125,10 +125,10 @@
               <span class="flex-1 ml-3 whitespace-nowrap">Conseils</span>
             </a>
           </li>
-          <li>
+          <li class="border-b">
             <a
               [routerLink]="['/profile']"
-              class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg  hover:bg-gray-100 "
               ><svg
                 class="w-6 h-6"
                 fill="none"
@@ -146,9 +146,9 @@
               <span class="flex-1 ml-3 whitespace-nowrap">Profil</span>
             </a>
           </li>
-          <li (click)="logOut()">
+          <li class="border-b" (click)="logOut()">
             <a
-              class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg  hover:bg-gray-100 "
             >
               <svg
                 class="w-6 h-6"

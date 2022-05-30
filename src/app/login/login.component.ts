@@ -29,7 +29,8 @@ export class LoginComponent implements OnInit {
   login() {
     this.fireService.loginWithEmail(this.email, this.password).then(
       (res) => {
-        this.router.navigateByUrl('/dashboard', { replaceUrl: true });
+        window.location.href = '/dashboard'
+       // this.router.navigateByUrl('/dashboard', { replaceUrl: true });
       },
       async (err) => {
         const toast = await this.toastController.create({

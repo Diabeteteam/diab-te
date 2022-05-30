@@ -1,12 +1,11 @@
-<ion-content>
-  <app-app-menu></app-app-menu>
-  <div class="main_content_div ">
+<ion-header no-border>
+  <ion-toolbar  no-borde>
+
     <div style="display: inline-flex; justify-content: space-around;align-items: center;">
     <ion-buttons slot="start" class="menu_btn">
       <ion-menu-button
         style="margin-top: 10px"
         autoHide="false"
-        color="dark"
       ></ion-menu-button>
     </ion-buttons>
     <ion-label
@@ -16,6 +15,15 @@
   >
     <!-- <app-notification-button></app-notification-button> -->
   </div>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <app-app-menu></app-app-menu>
+
+
+  <div class="main_content_div ">
+
     <ion-card-content style="margin-top: 3vh">
       <canvas #barCanvas style="position: relative ; background-color: rgb(255, 255, 255);box-shadow: rgb(17 12 46 / 15%) 0px 48px 100px 0px;border-radius: 10px; width: 100%;"></canvas>
     </ion-card-content>
