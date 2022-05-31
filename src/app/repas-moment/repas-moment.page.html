@@ -28,15 +28,15 @@
   </ion-list>
 
   <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <table class="w-full able-auto text-sm text-left text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
             <tr>
-                <th scope="col" class="px-6 py-3">Ingredient</th>
+                <th scope="col" class="px-6 py-3" style="font-size: 9px;">Ingredient</th>
                
-        <th scope="col" class="px-6 py-3">Poids</th>
-        <th scope="col" class="px-6 py-3">Proteines</th>
-        <th scope="col" class="px-6 py-3">Glucides</th>
-        <th scope="col" class="px-6 py-3">Lipides</th>
+        <th scope="col" class="px-6 py-3 text-xs" style="font-size: 9px;">Poids</th>
+        <th scope="col" class="px-6 py-3" style="font-size: 9px;">Proteines</th>
+        <th scope="col" class="px-6 py-3" style="font-size: 9px;">Glucides</th>
+        <th scope="col" class="px-6 py-3" style="font-size: 9px;">Lipides</th>
         <!-- <th scope="col" class="px-6 py-3">Energies</th> -->
 
       </tr>
@@ -73,23 +73,23 @@
  -->
 
       <tbody>
-        <tr *ngFor="let ingredient of ingredientChoisiList" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <tr *ngFor="let ingredient of ingredientChoisiList" class="bg-white border-b">
 
 
-        <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">  
+        <td scope="row"  style="word-break:break-word" class="px-6 py-4 font-medium text-gray-900">  
       
-          <h1 >{{ingredient.libelle}}</h1>
+          <h1 style="font-size: 9px;">{{ingredient.libelle}}</h1>
         </td>
         <td><div class="input-group">
           <!-- <input class="form-control" type="number" min="0" step="10" placeholder="Poids" value={{poids}}  (keyup)="pourPortionPoids($event.target.value )" ng-model="ingredient.poids" />  -->
           <span class="input-group-addon"> {{poids}}g</span>
         </div> </td>
-        <td>{{ingredient.proteines}} g</td>
-        <td>{{ingredient.glucides}} g</td>
-        <td>{{ingredient.lipides}} g</td>
+        <td style="font-size: 9px;">{{ingredient.proteines}} g</td>
+        <td style="font-size: 9px;">{{ingredient.glucides}} g</td>
+        <td style="font-size: 9px;">{{ingredient.lipides}} g</td>
         <!-- <td>{{ingredient.energie}} g</td> -->
         <td class="px-6 py-4 text-right">
-          <a  class="font-medium text-red-600 dark:text-red-500 hover:underline"  (click)="retirerIngredient(ingredient)" >Retirer</a>
+          <a  class="font-medium text-red-600 hover:underline"  (click)="retirerIngredient(ingredient)" >Retirer</a>
       </td>
 
       </tr>
@@ -98,11 +98,11 @@
 
       <tfoot>
         <tr>
-          <th class="text-right">Total</th>
-          <th>{{totaux.poids}} g</th>
-          <th class="text-center" >{{totaux.proteines }} g </th>
-          <th class="text-center">{{totaux.glucides }} g </th>
-          <th class="text-center">{{totaux.lipides }} g</th>
+          <th class="text-right" style="font-size: 9px;">Total</th>
+          <th style="font-size: 9px;">{{totaux.poids}} g</th>
+          <th class="text-center" style="font-size: 9px;" >{{totaux.proteines }} g </th>
+          <th class="text-center" style="font-size: 9px;">{{totaux.glucides }} g </th>
+          <th class="text-center" style="font-size: 9px;">{{totaux.lipides }} g</th>
           <!-- <th class="text-center">{{totaux.energie }} kcal</th> -->
         </tr>
         <!-- <tr>

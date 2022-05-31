@@ -113,10 +113,10 @@ ajouterIngredientChoisi(ingredient){
   console.log("choix", this.ingredientChoisiList)
 
 
-  let ingredientL = {"proteines": ingredient.proteines, "lipides": ingredient.lipides, "glucides": ingredient.glucides, "energie":ingredient.energie_ue  }
+  let ingredientL = {"libelle":ingredient.libelle, "proteines": ingredient.proteines, "lipides": ingredient.lipides, "glucides": ingredient.glucides, "energie":ingredient.energie_ue  }
   console.log("correct choix:", ingredientL)
 
- this.ingredientChoisiList.push({"proteines": ingredient.proteines, "lipides": ingredient.lipides, "glucides": ingredient.glucides, "energie":ingredient.energie_ue, "date": new Date(), "uid":JSON.parse(localStorage.getItem("user")).uid})
+ this.ingredientChoisiList.push({"libelle":ingredient.libelle, "proteines": ingredient.proteines, "lipides": ingredient.lipides, "glucides": ingredient.glucides, "energie":ingredient.energie_ue, "date": new Date(), "uid":JSON.parse(localStorage.getItem("user")).uid})
  this.display=false
  this.searchField = new FormControl('');
  console.log("choix", this.ingredientChoisiList)
