@@ -9,46 +9,144 @@
         Retour
       </ion-button>
     </ion-buttons>
+   <ion-title>Conseil</ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- component -->
+  <ion-slides [options]="option" class="ion-margin-top">
+    
+    <ion-slide>
+      <ion-card>
+        <ion-text color="dark">
+          <h2>Prenez vos repas au calme et à heures fixes</h2>
+        </ion-text>
+        <img src="assets/image/ma.jpeg">
+      </ion-card>
+    </ion-slide>
 
-  <div
-    class="mt-20 flex flex-col p-8 bg-gray-800 shadow-md hover:shodow-lg rounded-2xl"
-  >
-    <div class="flex items-center justify-between">
-      <div class="flex items-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-16 h-16 rounded-2xl p-3 border border-gray-800 text-blue-400 bg-gray-900"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          ></path>
-        </svg>
-        <div class="flex flex-col ml-3">
-          <div class="font-medium leading-none text-gray-100">
-            Faites attention à votre santé
-          </div>
-          <p class="text-sm text-gray-500 leading-none mt-1">
-            D'après votre historique, vous devez faire plus d'activité et suivre
-            le regime
-          </p>
-        </div>
-      </div>
-      <!-- <button
-        class="flex-no-shrink bg-red-500 px-5 ml-4 py-2 text-sm shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-red-500 text-white rounded-full"
-      >
-        Delete
-      </button> -->
-    </div>
-  </div>
+    <ion-slide>
+      <ion-card>
+        <ion-text color="dark" >
+          <h3>Prenez vos repas au calme et à heures fixes</h3>
+        </ion-text>
+      <ion-text>
+        <br>
+        <p>
+          Rythmez vos repas à heures régulières, ce qui donnera à votre corps des repères pour 
+          mieux réguler vos prises alimentaires. Installez-vous au calme et soyez attentif à ce
+           que vous mangez. <i>Prenez le temps de bien mâcher vos aliments, vous parviendrez plus
+            rapidement à satiété</i> 
+        </p></ion-text>
+
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-text color="dark">
+          <h2>Snacks et en-cas : gérez les petits creux !</h2>
+        </ion-text>
+        <img src="assets/image/mal.jpeg">
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-text color="dark">
+          <h3>Snacks et en-cas : gérez les petits creux !</h3>
+        </ion-text>
+        <br>
+        <p>
+          Aux sucres rapides, préférez une poignée d’amandes,
+           de noix, de noisettes, de pistaches… Non grillées,
+            non salées, elles apportent de vrais bénéfices pour
+             la santé : antioxydants, protéines, fibres, vitamines
+              et minéraux. De bons alliés pour prévenir les maladies
+               cardiovasculaires !
+        </p>
+
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-text color="dark">
+          <h2>Hydratez-vous : buvez de l’eau !</h2>
+        </ion-text>
+        <img src="assets/image/eau.png">
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-text color="dark">
+          <h3>Hydratez-vous : buvez de l’eau !</h3>
+        </ion-text>
+        <br>
+        <p>
+          L’eau est un élément indispensable pour notre corps. Il a besoin 
+          d’environ 1,5 litre par jour. Buvez six à huit verres tout au long 
+          de la journée et votre objectif sera atteint ! De plus, c’est un antifatigue
+           naturel, bénéfique pour les organes et pour la peau.
+        </p>
+
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-text color="dark">
+          <h2>Mangez de tout en quantité adaptée !</h2>
+        </ion-text>
+        <img src="assets/image/re.jpg">
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-text color="dark">
+          <h3>Mangez de tout en quantité adaptée !</h3>
+        </ion-text>
+        <br>
+        <p>
+          Au quotidien, l’alimentation doit s’articuler autour des trois
+           repas principaux et fournir ainsi les 2 000 à 2 500 calories 
+           nécessaires à un organisme adulte. Pour votre assiette, objectif 
+           variété : aucun aliment n’est à bannir, tout est affaire de quantité !
+        </p>
+
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-text color="dark">
+          <h2>Les fruits et légumes de saison, c'est meilleur !</h2>
+        </ion-text>
+        <img src="assets/image/le.jpg">
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-text color="dark">
+          <h3>Les fruits et légumes de saison, c'est meilleur !</h3>
+        </ion-text>
+        
+        <br>
+        <p>
+          Consommez au moins cinq fruits et légumes par jour,
+           riches en vitamines et en acides aminés dont nous avons
+            besoin. Choisissez-les de saison, pour plus de goût et de 
+            qualités nutritionnelles ! Si vous le pouvez, privilégiez les 
+            productions bios ou achetées en circuit court (en AMAP, par exemple)
+             pour profiter d’un panier encore plus vitaminé.
+        </p>
+
+      </ion-card>
+    </ion-slide>
+
+  </ion-slides>
 </ion-content>
